@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.inicio {
+  background: #858665;
+}
+
+.tienda {
+  background: #63653d;
+}
+
+.contactos {
+  background: #373922;
+}
+
+.header__titulo {
+  color: #f0aa14;
+  text-align: center;
+  text-shadow: 2px 2px 5px #f8f3f3;
+  font-size: 100px;
+  font-family: 'Style Script', cursiva;
+}
+
+.header__logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-name: logo;
+          animation-name: logo;
+}
+
+@-webkit-keyframes logo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes logo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Navegador General */
+div .menu {
+  list-style: none;
+  background-color: #0f4e0f;
+  margin: 0;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+div .menu .item {
+  background-color: #0f4e0f;
+  padding: 14px 16px;
+  display: block;
+  border-radius: 20px;
+  opacity: 0.5;
+  text-align: center;
+  position: relative;
+}
+
+div .menu .item a {
+  color: white;
+  text-decoration: none;
+}
+
+div .menu .menu__item .desple {
+  display: none;
+}
+
+div .menu .menu__item .desple li {
+  margin-left: -2rem;
+}
+
+div .menu .menu__item .desple a {
+  text-align: start;
+  display: inline-block;
+  width: 100%;
+}
+
+div .menu .menu__item .desple a:hover .desple {
+  background: #0f4e0f3f;
+}
+
+div .menu .menu__item:hover .desple {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  position: absolute;
+  background-color: #0f4e0f;
+  text-decoration: none;
+  list-style: none;
+}
+
+.pieChaupoo {
+  color: #95b395;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pieInicio {
+  background: #373922;
+}
+
+.pieTienda {
+  background: #858665;
+}
+
+.pieContacto {
+  background: #63653d;
+}
+
+/* Index */
+.main__hTres {
+  text-align: center;
+  color: wheat;
+  font-size: 40px;
+}
+
+.main__hCuatro {
+  text-align: center;
+}
+
+.tamanoNuevo {
+  width: 100%;
+  height: 100%;
+}
+
+.tamanoInner {
+  height: 800px;
+}
+
+.tamanoImag {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+}
+
+.buttonColor {
+  color: #0f4e0f;
+}
+
+.mainTienda {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.mailContacto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mailContacto .contacto {
+  width: 50vw;
+  background: cornsilk;
+}
+/*# sourceMappingURL=styles.css.map */

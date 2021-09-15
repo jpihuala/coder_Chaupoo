@@ -12,6 +12,7 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
 @each $vistas in inicio, tienda, contactos {
     .#{$vistas}{
         @if $vistas == inicio{
@@ -40,6 +41,7 @@ body {
     margin-right: auto;
     margin-top: 30px;
     animation-duration: 2s;
+    
     animation-name: logo;
 }
 
