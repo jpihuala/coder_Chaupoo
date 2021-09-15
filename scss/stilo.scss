@@ -1,0 +1,177 @@
+
+$fondo_color: #858665;
+$titulo_color: rgb(240, 170, 20);
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+@each $vistas in inicio, tienda, contactos {
+    .#{$vistas}{
+        @if $vistas == inicio{
+            background: #858665;
+        }
+        @else if $vistas == tienda{
+            background: #63653d;
+        }
+        @else {
+            background: #373922;
+        }
+    }
+}
+
+.header__titulo {
+    color: $titulo_color;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgb(248, 243, 243);
+    font-size: 100px;
+    font-family: 'Style Script', cursiva;
+}
+
+.header__logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    animation-duration: 2s;
+    animation-name: logo;
+}
+
+@keyframes logo {
+    0% {
+        opacity:0;
+        
+    }
+    100% {
+        opacity: 1;
+    }
+    
+}
+
+/* Navegador General */
+div{
+    .menu{
+        list-style: none;
+        background-color: #0f4e0f;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        .item{
+            background-color: #0f4e0f;
+            padding: 14px 16px;
+            display: block;
+            border-radius: 20px;
+            opacity: 0.5;
+            text-align: center;
+            position: relative;
+            a{
+                color: white;
+                text-decoration: none;
+            }
+        }
+        .menu__item{
+            .desple{
+                display: none;
+                li{
+                    margin-left: -2rem;
+                }
+                a{
+                    text-align: start;
+                    display: inline-block;
+                    width: 100%;
+                }
+                a:hover .desple{
+                    background: #0f4e0f3f;
+                }
+            }
+            
+            &:hover .desple{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                background-color: #0f4e0f;
+                text-decoration: none;
+                list-style: none;
+            }
+        }
+    }
+}
+
+.pieChaupoo {
+    color: #95b395;
+    display:flex;
+    justify-content: center;
+}
+
+
+@each $vistas in pieInicio, pieTienda, pieContacto {
+    .#{$vistas}{
+        @if $vistas == pieInicio{
+            background: #373922;
+        }
+        @else if $vistas == pieTienda{
+            background: #858665;
+        }
+        @else {
+            background: #63653d;
+        }
+    }
+}
+
+
+/* Index */
+
+.main__hTres {
+    text-align: center;
+    color: wheat;
+    font-size: 40px;
+}
+
+.main__hCuatro {
+    text-align: center;
+}
+
+.tamanoNuevo{
+
+    width: 100%;
+    height: 100%;
+}
+
+.tamanoInner{
+    height: 800px;
+
+}
+.tamanoImag{
+    object-fit: contain;
+    height: 100%;
+}
+
+.buttonColor{
+    color:#0f4e0f;
+}
+
+// tienda
+
+.mainTienda{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+// contacto
+.mailContacto{
+    display: flex;
+    justify-content: center;
+    .contacto{
+        width: 50vw;
+        background:cornsilk;
+    }
+}
