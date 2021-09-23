@@ -60,16 +60,15 @@ body {
 div{
     .menu{
         list-style: none;
-        background-color: #0f4e0f;
         margin: 0;
         padding: 10px;
         display: flex;
-        justify-content: flex-end;
+        flex-wrap: wrap;
+        justify-content: center;
         .item{
             background-color: #0f4e0f;
-            padding: 14px 16px;
+            padding: 14px 10px;
             display: block;
-            border-radius: 20px;
             opacity: 0.5;
             text-align: center;
             position: relative;
