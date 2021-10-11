@@ -160,4 +160,12 @@ div .menu .menu__item:hover .desple {
   width: 50vw;
   background: cornsilk;
 }
+
+.card {
+  margin: 5px;
+}
+
+.mailContacto .contacto {
+  padding: 10px 10px;
+}
 /*# sourceMappingURL=styles.css.map */
