@@ -1,5 +1,5 @@
 
-$fondo_color: #858665;
+$fondo_color: #e4e95d;
 $titulo_color: rgb(240, 170, 20);
 
 
@@ -16,7 +16,7 @@ body {
 @each $vistas in inicio, tienda, contactos {
     .#{$vistas}{
         @if $vistas == inicio{
-            background: #858665;
+            background: #f3e7b1;
         }
         @else if $vistas == tienda{
             background: #63653d;
@@ -65,8 +65,8 @@ div{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        background-color: #0f4e0f;
         .item{
-            background-color: #0f4e0f;
             padding: 14px 10px;
             display: block;
             opacity: 0.5;
@@ -132,7 +132,7 @@ div{
 
 .main__hTres {
     text-align: center;
-    color: wheat;
+    color: rgb(179, 191, 245);
     font-size: 40px;
 }
 
