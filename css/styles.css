@@ -65,11 +65,16 @@ div .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+<<<<<<< HEAD
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+=======
+  flex-wrap: wrap;
+  justify-content: center;
+>>>>>>> a829b385a66481ba301b43d96d51283220275c02
   background-color: #0f4e0f;
 }
 
@@ -194,3 +199,15 @@ div .menu .menu__item:hover .desple {
   width: 50vw;
   background: cornsilk;
 }
+<<<<<<< HEAD
+=======
+
+.card {
+  margin: 5px;
+}
+
+.mailContacto .contacto {
+  padding: 10px 10px;
+}
+/*# sourceMappingURL=styles.css.map */
+>>>>>>> a829b385a66481ba301b43d96d51283220275c02
