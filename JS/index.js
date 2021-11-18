@@ -68,6 +68,8 @@
 //         }
 // } while(opcion !==3);
 
+/*generador de Compras*/
+
 const container = document.querySelector('.combo');
 const span = document.getElementById('span');
 let contador = 0 
@@ -84,10 +86,7 @@ container.addEventListener('click', (e)  => {
     e.stopPropagation
 })
 
-
-
-
-
+/*Nuevo Proyecto*/
 
 let combos = [{id:1, nombre: "Alpha", precio: 1450}, 
 {id:2, nombre: "Beta", precio : 1450},
