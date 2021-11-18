@@ -81,4 +81,5 @@ container.addEventListener('click', (e)  => {
         contador --
         span.textContent = contador
     }
+    e.stopPropagation
 })
