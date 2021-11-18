@@ -68,11 +68,16 @@
 //         }
 // } while(opcion !==3);
 
-const lista = document.getElementById("lista")
-console.log (lista)
+const lista =  document.querySelector('#lista');
 
-const li = document.createElement('li')
-li.textContent = 'primer elemento'
+const arrayLista = ['Alpha', 'Beta', 'Gamma', 'Delta'];
 
-lista.appendChild(li)
+const template = document.querySelector("#templateLi").content;
+const fragment = document.createDocumentFragment();
 
+arrayLista.forEach((item) => {
+    template.querySelector('span').textContent = item;
+    const clone = template.cloneNode(true)
+    fragment.appendChild(clone);
+});
+lista.appendChild(fragment);
