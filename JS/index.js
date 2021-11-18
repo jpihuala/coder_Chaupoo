@@ -83,3 +83,38 @@ container.addEventListener('click', (e)  => {
     }
     e.stopPropagation
 })
+
+
+
+
+
+
+let combos = [{id:1, nombre: "Alpha", precio: 1450}, 
+{id:2, nombre: "Beta", precio : 1450},
+{id:3, nombre: "Delta", precio : 1450}]
+
+let mostrarCombos = document.getElementById('combosChau');
+let nomVar = document.createElement("div");
+
+for (let i = 0; i < combos.length; i++){
+
+    nomVar.innerHTML += `
+                <img src="../Imagenes/sigma.jpeg" class="card-img-top" alt="sigma">
+                <div class="card-body">
+                    <h5 class="card-title">${combos[i].nombre}</h5>
+                    <p class="card-text">Some.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+                <h4 class="my-5">Contador: <span id="span">0</span></h4>
+    `
+}
+
+mostrarCombos.appendChild(nomVar)
+
+mostrarCombos.addEventListener('click', (e)  => {
+    if(e.target.classList.contains('card')){
+        contador ++
+        span.textContent = contador
+    }
+    e.stopPropagation
+})
