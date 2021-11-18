@@ -68,16 +68,17 @@
 //         }
 // } while(opcion !==3);
 
-const lista =  document.querySelector('#lista');
+const container = document.querySelector('.combo');
+const span = document.getElementById('span');
+let contador = 0 
 
-const arrayLista = ['Alpha', 'Beta', 'Gamma', 'Delta'];
-
-const template = document.querySelector("#templateLi").content;
-const fragment = document.createDocumentFragment();
-
-arrayLista.forEach((item) => {
-    template.querySelector('span').textContent = item;
-    const clone = template.cloneNode(true)
-    fragment.appendChild(clone);
-});
-lista.appendChild(fragment);
+container.addEventListener('click', (e)  => {
+    if(e.target.classList.contains('btn-info')){
+        contador ++
+        span.textContent = contador
+    }
+    if(e.target.classList.contains('btn-danger')){
+        contador --
+        span.textContent = contador
+    }
+})
