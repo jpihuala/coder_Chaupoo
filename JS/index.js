@@ -70,50 +70,88 @@
 
 /*generador de Compras*/
 
-const container = document.querySelector('.combo');
-const span = document.getElementById('span');
-let contador = 0 
+// const container = document.querySelector('.combo');
+// const span = document.getElementById('span');
+// let contador = 0 
 
-container.addEventListener('click', (e)  => {
-    if(e.target.classList.contains('btn-info')){
-        contador ++
-        span.textContent = contador
+// container.addEventListener('click', (e)  => {
+//     if(e.target.classList.contains('btn-info')){
+//         contador ++
+//         span.textContent = contador
+//     }
+//     if(e.target.classList.contains('btn-danger')){
+//         contador --
+//         span.textContent = contador
+//     }
+//     e.stopPropagation
+// })
+
+// /*Nuevo Proyecto*/
+
+// let combos = [{id:1, nombre: "Alpha", precio: 1450}, 
+// {id:2, nombre: "Beta", precio : 1450},
+// {id:3, nombre: "Delta", precio : 1450}]
+
+// let mostrarCombos = document.getElementById('combosChau');
+// let nomVar = document.createElement("div");
+
+// for (let i = 0; i < combos.length; i++){
+
+//     nomVar.innerHTML += `
+//                 <img src="../Imagenes/sigma.jpeg" class="card-img-top" alt="sigma">
+//                 <div class="card-body">
+//                     <h5 class="card-title">${combos[i].nombre}</h5>
+//                     <p class="card-text">Some.</p>
+//                     <a href="#" class="btn btn-primary">Comprar</a>
+//                 </div>
+//                 <h4 class="my-5">Contador: <span id="span">0</span></h4>
+//     `
+// }
+
+// mostrarCombos.appendChild(nomVar)
+
+// mostrarCombos.addEventListener('click', (e)  => {
+//     if(e.target.classList.contains('card')){
+//         contador ++
+//         span.textContent = contador
+//     }
+//     e.stopPropagation
+// })
+
+
+// JQUERY
+
+const combos = [];
+
+class Combo{
+    constructor(marca, precio){
+        this.id = combos.length;
+        this.marca = marca.toUpperCase();
+        this.precio = Number(precio);
     }
-    if(e.target.classList.contains('btn-danger')){
-        contador --
-        span.textContent = contador
+    detalle(){
+        return `La marca es: ${this.marca} y el valor del Shampoo es: $ ${this.precio}`;
     }
-    e.stopPropagation
-})
-
-/*Nuevo Proyecto*/
-
-let combos = [{id:1, nombre: "Alpha", precio: 1450}, 
-{id:2, nombre: "Beta", precio : 1450},
-{id:3, nombre: "Delta", precio : 1450}]
-
-let mostrarCombos = document.getElementById('combosChau');
-let nomVar = document.createElement("div");
-
-for (let i = 0; i < combos.length; i++){
-
-    nomVar.innerHTML += `
-                <img src="../Imagenes/sigma.jpeg" class="card-img-top" alt="sigma">
-                <div class="card-body">
-                    <h5 class="card-title">${combos[i].nombre}</h5>
-                    <p class="card-text">Some.</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-                <h4 class="my-5">Contador: <span id="span">0</span></h4>
-    `
 }
 
-mostrarCombos.appendChild(nomVar)
+combos.push(new Combo("Alpha", '1400'));
+combos.push(new Combo("Beta", '1500'));
+combos.push(new Combo("Gama", '1600'));
 
-mostrarCombos.addEventListener('click', (e)  => {
-    if(e.target.classList.contains('card')){
-        contador ++
-        span.textContent = contador
-    }
-    e.stopPropagation
-})
+console.log(combos);
+
+
+function combosSelect(id){
+    let innerSelect = '';
+    
+    combos.forEach(combo =>  innerSelect += `<option value='${combo.id}'>${combo.marca}</opction>`)
+    console.log(id)
+    return `<select id="${id}">${innerSelect}</select>`;
+    
+}
+$("body").append(combosSelect('elegirCombo'));
+$('#elegirCombo').change(function (e) { 
+    e.preventDefault();
+    const seleccion = combos.find(obj => obj.id == e.target.value);
+    $("body").append(`<h3>${seleccion.detalle()}</h3>`);
+});
