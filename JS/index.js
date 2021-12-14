@@ -155,3 +155,19 @@ $('#elegirCombo').change(function (e) {
     const seleccion = combos.find(obj => obj.id == e.target.value);
     $("body").append(`<h3>${seleccion.detalle()}</h3>`);
 });
+
+
+
+$("main").ready(function () {
+    $("#fadeIn").click(function () { 
+        $("#caja").fadeIn();
+    });
+    $("#fadeOut").click(function () { 
+        $("#caja").fadeOut();
+    });
+    $("#fadeTog").click(function () { 
+        $("#caja").fadeToggle();
+        
+    });
+    
+});
