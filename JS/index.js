@@ -121,53 +121,79 @@
 
 // JQUERY
 
-const combos = [];
+// const combos = [];
 
-class Combo{
-    constructor(marca, precio){
-        this.id = combos.length;
-        this.marca = marca.toUpperCase();
-        this.precio = Number(precio);
-    }
-    detalle(){
-        return `La marca es: ${this.marca} y el valor del Shampoo es: $ ${this.precio}`;
-    }
-}
+// class Combo{
+//     constructor(marca, precio){
+//         this.id = combos.length;
+//         this.marca = marca.toUpperCase();
+//         this.precio = Number(precio);
+//     }
+//     detalle(){
+//         return `La marca es: ${this.marca} y el valor del Shampoo es: $ ${this.precio}`;
+//     }
+// }
 
-combos.push(new Combo("Alpha", '1400'));
-combos.push(new Combo("Beta", '1500'));
-combos.push(new Combo("Gama", '1600'));
+// combos.push(new Combo("Alpha", '1400'));
+// combos.push(new Combo("Beta", '1500'));
+// combos.push(new Combo("Gama", '1600'));
 
-console.log(combos);
+// console.log(combos);
 
 
-function combosSelect(id){
-    let innerSelect = '';
+// function combosSelect(id){
+//     let innerSelect = '';
     
-    combos.forEach(combo =>  innerSelect += `<option value='${combo.id}'>${combo.marca}</opction>`)
-    console.log(id)
-    return `<select id="${id}">${innerSelect}</select>`;
+//     combos.forEach(combo =>  innerSelect += `<option value='${combo.id}'>${combo.marca}</opction>`)
+//     console.log(id)
+//     return `<select id="${id}">${innerSelect}</select>`;
     
-}
-$("body").append(combosSelect('elegirCombo'));
-$('#elegirCombo').change(function (e) { 
-    e.preventDefault();
-    const seleccion = combos.find(obj => obj.id == e.target.value);
-    $("body").append(`<h3>${seleccion.detalle()}</h3>`);
-});
+// }
+// $("body").append(combosSelect('elegirCombo'));
+// $('#elegirCombo').change(function (e) { 
+//     e.preventDefault();
+//     const seleccion = combos.find(obj => obj.id == e.target.value);
+//     $("body").append(`<h3>${seleccion.detalle()}</h3>`);
+// });
 
 
 
-$("main").ready(function () {
-    $("#fadeIn").click(function () { 
-        $("#caja").fadeIn();
-    });
-    $("#fadeOut").click(function () { 
-        $("#caja").fadeOut();
-    });
-    $("#fadeTog").click(function () { 
-        $("#caja").fadeToggle();
+// $("main").ready(function () {
+//     $("#fadeIn").click(function () { 
+//         $("#caja").fadeIn();
+//     });
+//     $("#fadeOut").click(function () { 
+//         $("#caja").fadeOut();
+//     });
+//     $("#fadeTog").click(function () { 
+//         $("#caja").fadeToggle();
         
-    });
+//     });
     
+// });
+
+
+
+// INDEX Contacto
+
+$('enviar').click( () => {
+    var nombre = document.getElementsByClassName('nombre').value;
+    var apellido = document.getElementsByClassName ('apellido').value;
+    var email = document.getElementsByClassName ('email').value;
+    var direccion = document.getElementsByClassName ('direccion').value;
+    var ciudad = document.getElementsByClassName ('ciudad').value
+
+    var datos= "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email+ "&Direccion= "+direccion+ "&Ciudad= "+ciudad; 
+    const archivo = '../datos.txt'
+
+    $.$.ajax({
+        type: "POST",
+        url: archivo,
+        data: datos,
+        dataType: "dataType",
+        success: function (response) {
+            
+            $(".mailContacto").prepend("Se realizo el envio");
+        }
+    });
 });
