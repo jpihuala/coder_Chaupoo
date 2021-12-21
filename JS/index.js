@@ -197,24 +197,25 @@
 //         });
 //     });
 // })
-$(document).ready(function () {
+$(document).ready( () => {
     const URLApi = 'https://jsonplaceholder.typicode.com/posts';
-    let nombre = document.querySelector('.nombre').value;
+    // let nombre = document.querySelector('.nombre').value;
     // var apellido = document.getElementsByClassName ('apellido');
     // var email = document.getElementsByClassName ('email');
     // var datos = {"Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email}
-    // const infoAEnviar = {mail:"josue", Contraseña:"1234"}
+    const infoAEnviar = {nombre:"josue", Contraseña:"1234"}
     
-    
-    $("#enviar").click(function () { 
-        $.post(URLApi, nombre,
-            function (response, status) {
-                if(status === "success"){
-                $(".respuesta").prepend(`<h1>${response.nombre}</h1>`);
-                }
-            },
-        );
+    $(".contacto").prepend("<button type='sumit' class='btn btn-primary' id='btn'>Enviar Datos</button>");
+
+    $("#btn").click(function () { 
+        $.ajax({
+            method: "POST",
+            url: URLApi,
+            data: infoAEnviar,
+            success: function (response) {
+                $(".respuesta").prepend(`<h1> ${response.nombre} <br> ${response.Contraseña} </h1>`)
+            }
+        });
         
     });
-    
-});
+})
