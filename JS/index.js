@@ -176,24 +176,24 @@
 
 // INDEX Contacto
 
-$('enviar').click( () => {
+$(document).ready(() => {
+    const archivo = '../datos.txt'
     var nombre = document.getElementsByClassName('nombre').value;
     var apellido = document.getElementsByClassName ('apellido').value;
     var email = document.getElementsByClassName ('email').value;
     var direccion = document.getElementsByClassName ('direccion').value;
     var ciudad = document.getElementsByClassName ('ciudad').value
-
     var datos= "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email+ "&Direccion= "+direccion+ "&Ciudad= "+ciudad; 
-    const archivo = '../datos.txt'
-
-    $.$.ajax({
-        type: "POST",
-        url: archivo,
-        data: datos,
-        dataType: "dataType",
-        success: function (response) {
+    
+    $('enviar').click( () => {
+        $.ajax({
+            method: "POST",
+            url: archivo,
+            data: datos,
             
-            $(".mailContacto").prepend("Se realizo el envio");
-        }
+            success: function (response) {
+                $("#mailContacto").prepend(`<h1>se confirmo el envio</h1>`);
+            }
+        });
     });
-});
+})
