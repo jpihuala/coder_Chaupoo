@@ -176,24 +176,45 @@
 
 // INDEX Contacto
 
-$(document).ready(() => {
-    const archivo = 'https:/jsonplaceholder.typicode.com/posts';
-    var nombre = document.getElementsByClassName('nombre').value;
-    var apellido = document.getElementsByClassName ('apellido').value;
-    var email = document.getElementsByClassName ('email').value;
-    // var direccion = document.getElementsByClassName ('direccion').value;
-    // var ciudad = document.getElementsByClassName ('ciudad').value
-    var datos = "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email; 
+// $(document).ready(() => {
+//     const URLApi = 'https://jsonplaceholder.typicode.com/posts';
+//     var nombre = document.getElementsByClassName('nombre').value;
+//     var apellido = document.getElementsByClassName ('apellido').value;
+//     var email = document.getElementsByClassName ('email').value;
+//     // var direccion = document.getElementsByClassName ('direccion').value;
+//     // var ciudad = document.getElementsByClassName ('ciudad').value
+//     var datos = "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email; 
     
-    $('enviar').click( () => {
-        $.ajax({
-            method: "POST",
-            url: archivo,
-            data: datos,
+//     $('#enviar').click(function () {
+//         $.ajax({
+//             method: "POST",
+//             url: URLApi,
+//             data: datos,
             
-            success: function (response) {
-                $("#mailContacto").prepend(`<h1>se confirmo el envio</h1>`);
-            }
-        });
+//             success: function (response) {
+//                 $("body").prepend(`<h1>se confirmo el envio</h1>`);
+//             }
+//         });
+//     });
+// })
+$(document).ready(function () {
+    const URLApi = 'https://jsonplaceholder.typicode.com/posts';
+    var nombre = document.querySelector('.nombre').value;
+    // var apellido = document.getElementsByClassName ('apellido');
+    // var email = document.getElementsByClassName ('email');
+    // var datos = {"Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email}
+    // const infoAEnviar = {mail:"josue", Contraseña:"1234"}
+    
+    
+    $("#enviar").click(function () { 
+        $.post(URLApi, nombre,
+            function (response, status) {
+                if(status === "success"){
+                $(".respuesta").prepend(`<h1>${response.nombre}</h1>`);
+                }
+            },
+        );
+        
     });
-})
+    
+});
