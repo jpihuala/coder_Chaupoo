@@ -177,13 +177,13 @@
 // INDEX Contacto
 
 $(document).ready(() => {
-    const archivo = '../datos.txt'
+    const archivo = 'https:/jsonplaceholder.typicode.com/posts';
     var nombre = document.getElementsByClassName('nombre').value;
     var apellido = document.getElementsByClassName ('apellido').value;
     var email = document.getElementsByClassName ('email').value;
-    var direccion = document.getElementsByClassName ('direccion').value;
-    var ciudad = document.getElementsByClassName ('ciudad').value
-    var datos= "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email+ "&Direccion= "+direccion+ "&Ciudad= "+ciudad; 
+    // var direccion = document.getElementsByClassName ('direccion').value;
+    // var ciudad = document.getElementsByClassName ('ciudad').value
+    var datos = "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email; 
     
     $('enviar').click( () => {
         $.ajax({
