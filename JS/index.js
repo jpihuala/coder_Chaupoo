@@ -199,7 +199,7 @@
 // })
 $(document).ready(function () {
     const URLApi = 'https://jsonplaceholder.typicode.com/posts';
-    var nombre = document.querySelector('.nombre').value;
+    let nombre = document.querySelector('.nombre').value;
     // var apellido = document.getElementsByClassName ('apellido');
     // var email = document.getElementsByClassName ('email');
     // var datos = {"Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email}
