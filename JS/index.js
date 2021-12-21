@@ -205,7 +205,7 @@ $(document).ready( () => {
     // var datos = {"Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email}
     const infoAEnviar = {nombre:"josue", Contraseña:"1234"}
     
-    $(".contacto").prepend("<button type='sumit' class='btn btn-primary' id='btn'>Enviar Datos</button>");
+    $(".contacto").append("<button type='sumit' class='btn btn-primary' id='btn'>Enviar Datos</button>");
 
     $("#btn").click(function () { 
         $.ajax({
@@ -213,7 +213,7 @@ $(document).ready( () => {
             url: URLApi,
             data: infoAEnviar,
             success: function (response) {
-                $(".respuesta").prepend(`<h1> ${response.nombre} <br> ${response.Contraseña} </h1>`)
+                $(".respuesta").prepend(`<h1> se envio la informacion </h1>`)
             }
         });
         
