@@ -213,7 +213,7 @@ $(document).ready( () => {
             url: URLApi,
             data: infoAEnviar,
             success: function (response) {
-                $(".respuesta").prepend(`<h1> se envio la informacion </h1>`)
+                $(".respuesta").prepend(`<h1> se envio la informacion</h1>`)
             }
         });
         
