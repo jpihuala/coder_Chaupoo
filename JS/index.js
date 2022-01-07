@@ -1,221 +1,141 @@
-// class Producto {
-//     constructor(nombre, shampoo1, shampoo2, regalo, precio){
-//         this.nombre = nombre;
-//         this.shampoo1 = shampoo1;
-//         this.shampoo2 = shampoo2;
-//         this.regalo = regalo
-//         this.precio = Number(precio);
-//     }
-// }
-
-
-// const combo1 = new Producto ("Alfa", "Nutritivo", "Idatante", "Desodorante", 1450);
-// const combo2 = new Producto ("Beta", "Nutritivo", "Hidratante", "Serum Crecimiento", 1350);
-// const combo3 = new Producto ("Gamma", "Nutritivo", "Hidratante", "Aceite de Calendula", 1400);
-// const combo4 = new Producto ("Delta", "Nutritivo", "Hidratante", "Crema de coco", 1500);
-
-// const combos = [combo1, combo2, combo3, combo4];
-
-// const verProductos = () => {
-//     let texto = " ";
-//     for (const combo of combos) {
-//         texto += `
-//         Combo: ${combo.nombre}
-//         Shampoo 1: ${combo.shampoo1}
-//         Shampoo 2: ${combo.shampoo2}
-//         Extra : ${combo.regalo}
-//         Precio: $${combo.precio}
-
-//         `
-//     }
-//     return texto;
-// }
-
-// const comprar = () => {
-//     const comboU = prompt(`¿Que producto desea comprar?
-//     ${verProductos()}`);
-//     const comboEncontrado = combos.find(combo => combo.nombre.toLocaleLowerCase() === comboU.toLocaleLowerCase().trim());
-//     if (comboEncontrado) {
-//         alert(`Compraste ${comboEncontrado.nombre} a $${comboEncontrado.precio}`);
-//     }
-//     else{
-//         alert(`el combo ${comboU} no se encuentra.`)
-//     }
-// }
-
-// let opcion;
-// do {
-//     opcion = Number(prompt(`Ingrese una opcion:
-//         1 - Ver productor
-//         2 - Comprar
-//         3 - Salir
-//         `));
-
-//         switch (opcion) {
-//             case 1:
-//                 const valorRecibido = verProductos();
-//                 alert(valorRecibido);
-//                 break;
-//             case 2:
-//                 comprar();
-//                 break;
-//             case 3:
-//                 alert(`Gracias por su visita`);
-//                 break;
-//             default:
-//                 alert(`Opcion incorrecta`);
-//                 break;
-//         }
-// } while(opcion !==3);
-
-/*generador de Compras*/
-
-// const container = document.querySelector('.combo');
-// const span = document.getElementById('span');
-// let contador = 0 
-
-// container.addEventListener('click', (e)  => {
-//     if(e.target.classList.contains('btn-info')){
-//         contador ++
-//         span.textContent = contador
-//     }
-//     if(e.target.classList.contains('btn-danger')){
-//         contador --
-//         span.textContent = contador
-//     }
-//     e.stopPropagation
-// })
-
-// /*Nuevo Proyecto*/
-
-// let combos = [{id:1, nombre: "Alpha", precio: 1450}, 
-// {id:2, nombre: "Beta", precio : 1450},
-// {id:3, nombre: "Delta", precio : 1450}]
-
-// let mostrarCombos = document.getElementById('combosChau');
-// let nomVar = document.createElement("div");
-
-// for (let i = 0; i < combos.length; i++){
-
-//     nomVar.innerHTML += `
-//                 <img src="../Imagenes/sigma.jpeg" class="card-img-top" alt="sigma">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${combos[i].nombre}</h5>
-//                     <p class="card-text">Some.</p>
-//                     <a href="#" class="btn btn-primary">Comprar</a>
-//                 </div>
-//                 <h4 class="my-5">Contador: <span id="span">0</span></h4>
-//     `
-// }
-
-// mostrarCombos.appendChild(nomVar)
-
-// mostrarCombos.addEventListener('click', (e)  => {
-//     if(e.target.classList.contains('card')){
-//         contador ++
-//         span.textContent = contador
-//     }
-//     e.stopPropagation
-// })
-
-
-// JQUERY
-
-// const combos = [];
-
-// class Combo{
-//     constructor(marca, precio){
-//         this.id = combos.length;
-//         this.marca = marca.toUpperCase();
-//         this.precio = Number(precio);
-//     }
-//     detalle(){
-//         return `La marca es: ${this.marca} y el valor del Shampoo es: $ ${this.precio}`;
-//     }
-// }
-
-// combos.push(new Combo("Alpha", '1400'));
-// combos.push(new Combo("Beta", '1500'));
-// combos.push(new Combo("Gama", '1600'));
-
-// console.log(combos);
-
-
-// function combosSelect(id){
-//     let innerSelect = '';
-    
-//     combos.forEach(combo =>  innerSelect += `<option value='${combo.id}'>${combo.marca}</opction>`)
-//     console.log(id)
-//     return `<select id="${id}">${innerSelect}</select>`;
-    
-// }
-// $("body").append(combosSelect('elegirCombo'));
-// $('#elegirCombo').change(function (e) { 
-//     e.preventDefault();
-//     const seleccion = combos.find(obj => obj.id == e.target.value);
-//     $("body").append(`<h3>${seleccion.detalle()}</h3>`);
-// });
-
-
-
-// $("main").ready(function () {
-//     $("#fadeIn").click(function () { 
-//         $("#caja").fadeIn();
-//     });
-//     $("#fadeOut").click(function () { 
-//         $("#caja").fadeOut();
-//     });
-//     $("#fadeTog").click(function () { 
-//         $("#caja").fadeToggle();
-        
-//     });
-    
-// });
-
-
-
-// INDEX Contacto
-
-// $(document).ready(() => {
-//     const URLApi = 'https://jsonplaceholder.typicode.com/posts';
-//     var nombre = document.getElementsByClassName('nombre').value;
-//     var apellido = document.getElementsByClassName ('apellido').value;
-//     var email = document.getElementsByClassName ('email').value;
-//     // var direccion = document.getElementsByClassName ('direccion').value;
-//     // var ciudad = document.getElementsByClassName ('ciudad').value
-//     var datos = "Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email; 
-    
-//     $('#enviar').click(function () {
-//         $.ajax({
-//             method: "POST",
-//             url: URLApi,
-//             data: datos,
+    function shoppingCart() {
+            const addToShoppingCart = document.querySelectorAll( '.add-to-cart-btn' ); // Botón "Agregar al carrito"
             
-//             success: function (response) {
-//                 $("body").prepend(`<h1>se confirmo el envio</h1>`);
-//             }
-//         });
-//     });
-// })
-$(document).ready( () => {
-    const URLApi = 'https://jsonplaceholder.typicode.com/posts';
-    // let nombre = document.querySelector('.nombre').value;
-    // var apellido = document.getElementsByClassName ('apellido');
-    // var email = document.getElementsByClassName ('email');
-    // var datos = {"Nombre= "+nombre+"&Apellido= "+apellido+"&email= "+email}
-    const infoAEnviar = {nombre:"josue", Contraseña:"1234"}
-    
-    $(".contacto").append("<button type='sumit' class='btn btn-primary' id='btn'>Enviar Datos</button>");
 
-    $("#btn").click(function () { 
-        $.ajax({
-            method: "POST",
-            url: URLApi,
-            data: infoAEnviar,
-            success: function (response) {
-                $(".respuesta").prepend(`<h1> se envio la informacion</h1>`)
-            }
-        });
-        
-    });
-})
+            addToShoppingCart.forEach( ( addToCartButtons ) => {
+                addToCartButtons.addEventListener( 'click', addToCartBtnClick )
+            });
+
+            function addToCartBtnClick( event ) {
+                let btn = event.target;
+                const combos = btn.closest( '.combo' );
+
+                // Productos
+                    const comboImg = combos.querySelector( '.combo-img' ).src;                        
+                    const comboTitle = combos.querySelector( '.combo-title' ).textContent;
+                    const comboPrice = combos.querySelector( '.combo-price' ).textContent;
+                    
+            
+                modalCart( comboImg, comboTitle, comboPrice );
+
+                cartCounterUpdate();
+                
+            };    
+
+            const showCart = document.querySelector( '.show-cart' );
+                
+            function modalCart( comboImg, comboTitle, comboPrice ) {
+
+                    let combosTitleRepeat = showCart.getElementsByClassName( 'shoppingCartComboTitle' );
+                        
+                    for( let i = 0; i < combosTitleRepeat.length; i++ ) {
+                        if( combosTitleRepeat[i].innerHTML === comboTitle ) {
+                            let combosTitleQuantity = combosTitleRepeat[i].parentElement.parentElement.querySelector( '.shoppingCartComboQuantity' );
+                            combosTitleQuantity.value++;
+                            cartTotalPrice();
+                        
+                            return;
+                        }
+                    };
+
+                const shoppingCartDiv = document.createElement( 'div' );
+                const cartModal =
+                    ` 
+                        <div class="row shoppingCartCombo mt-3 text-center">
+                            <div class="col-3">
+                                <img src=${comboImg} class="imagenesModal"/>
+                                <h6 class="mt-2 shoppingCartComboTitle">${comboTitle}</h6>
+                            </div> 
+                            <div class="col-3">
+                                <p class="combo-price shoppingCartComboPrice">${comboPrice}</p>
+                            </div>
+                            <div class="col-3">
+                                <input class="text-center shoppingCartComboQuantity inputCuenta" type="number" value="1">
+                            </div>
+                            <div class="col-3">
+                                <button class="btn btn-danger" id="remove-combo-btn" data-name="${comboTitle}">
+                                    x
+                                </button>
+                            </div>
+                        </div>
+                    `
+                                        
+                shoppingCartDiv.innerHTML = cartModal;
+                showCart.append( shoppingCartDiv );
+
+                    const removeButton = shoppingCartDiv.querySelector( '#remove-combo-btn' );
+
+                    removeButton.addEventListener( 'click', removeComboFromCart );
+
+                    const inputCartQuantity = shoppingCartDiv.querySelector( '.shoppingCartComboQuantity' );
+                    
+                    inputCartQuantity.addEventListener( 'change', cartQuantityChange );
+                
+                    
+                cartTotalPrice();
+            };
+
+
+            function cartCounterUpdate() {
+                const cartCombosLength = document.querySelectorAll( '.shoppingCartCombo' );
+                const cartCounter = document.querySelector( '#cart-counter' );
+                cartCounter.innerHTML = cartCombosLength.length;
+                cartTotalPrice();
+            };  
+
+            function cartTotalPrice() {
+                var totalCount = 0;
+                const totalPrice = document.querySelector( '.total-price' );
+                const shoppingCartCombos = document.querySelectorAll( '.shoppingCartCombo' );
+                
+                shoppingCartCombos.forEach( ( shoppingCartCombo ) => {
+
+                    const comboCartPriceElement = shoppingCartCombo.querySelector( '.shoppingCartComboPrice' );
+                    const comboCartPrice = Number( comboCartPriceElement.textContent.replace( '$', '' ) );
+
+                    const comboCartQuantityElement = shoppingCartCombo.querySelector( '.shoppingCartComboQuantity' );
+                    const comboCartQuantity = Number( comboCartQuantityElement.value );
+
+                    totalCount += comboCartPrice * comboCartQuantity;
+                });
+
+                totalPrice.innerHTML = `$${totalCount.toFixed(2)}`;
+            };
+
+
+            function removeComboFromCart(event) {
+                const removeBtnClicked = event.target;
+                removeBtnClicked.closest( '.shoppingCartCombo' ).remove();
+                cartTotalPrice();
+                cartCounterUpdate();
+            };
+
+            function cartQuantityChange(event) {
+                const inputCartChange = event.target;
+                inputCartChange.value <= 0 ? ( inputCartChange.value = 1 ) : null;
+                cartTotalPrice();
+                cartCounterUpdate();
+            };
+
+            const botonFinalizarCompra = document.querySelector( '.btn-finalizar-compra' );
+
+            botonFinalizarCompra.addEventListener('click', finalizarCompraTotal);
+
+            function finalizarCompraTotal() {
+                showCart.innerHTML = '';
+                cartTotalPrice();
+                cartCounterUpdate();
+            };
+
+            const botonVaciarCarrito = document.querySelector( '.btn-vaciar-carrito' );
+            
+            botonVaciarCarrito.addEventListener('click', vaciarCarritoCompleto);
+
+            function vaciarCarritoCompleto() {
+                showCart.innerHTML = '';
+                cartTotalPrice();
+                cartCounterUpdate();
+            };
+    };
+    
+    shoppingCart();

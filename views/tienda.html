@@ -16,8 +16,14 @@
 <body class="body tienda">
     <div class="container">
         <header class="header">
-            <div>
+            <div class="d-flex justify-content-center mt-3">
                 <img class="header__logo" src="../Imagenes/logo chaupoo.png" alt="logo chaupoo" width="25%">
+                <a type="button" data-toggle="modal" data-target="#cartModal">
+                    <img class="img-fluid cartImg" src="../imagenes/cart.png" alt="cart" width="25%"></i>
+                </a>   
+                <div id="cartNumbers"> 
+                    <span class="fw-bold text-white" id="cart-counter">0</span> <!--JS / Cart Counter-->
+                </div>
             </div>
             <h1 class="header__titulo">Tienda Chaupoo</h1>
             <div>
@@ -35,82 +41,193 @@
                     <li class="item"><a href="./contacto.html">Contacto</a></li>
                 </ul>
             </div>
-        </header>
 
+        <section class="container">
+            <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header border-bottom-0">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                Tu carrito de compras
+                            </h5>
+                            <button type="button" class="close btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row modal-header text-center">
+                                <div class="col-3">
+                                    <h6>Producto</h6>
+                                </div>
+                                <div class="col-3">
+                                    <h6>Precio</h6>
+                                </div>
+                                <div class="col-3">
+                                    <h6>Cantidad</h6>
+                                </div>
+                                <div class="col-3">
+                                    <h6>Eliminar</h6>
+                                </div>
+                            </div> 
+                            <div class="show-cart">  <!-- JS / Show cart Modal-->  
+                            </div>
+                              
+                            <div class="d-flex justify-content-end">
+                                <h5 class="precioTotal">Total: <span class="text-success total-price">0</span> </h5> <!-- JS / Total price-->
+                            </div>   
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-danger btn-vaciar-carrito">Vaciar carrito</button> <!-- JS / Vaciar carrito -->
+                            <button type="button" class="btn btn-success btn-finalizar-compra" data-toggle="modal" data-target="#comprarModal"> <!-- JS / Finalizar compra -->
+                                Finalizar compra
+                            </button> 
+                            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel" aria-hidden="true"> <!-- Modal Finalizar compra -->
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="comprarModalLabel">¡Gracias por su compra!</h5>
+                                            <button type="button" class="close btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Pronto recibirá su pedido</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+            </header>
 
-        <!-- <main>
-            <div class="container py-5 bg-warning text-center combo">
-                <h1>Combos</h1>
-                <button class="btn btn-info" id="fadeIn">Fade In</button>
-                <button class="btn btn-danger" id="fadeOut">Fade Out</button>
-                <button class="btn btn-success" id="fadeTog">Fade Toggle</button>
-                <h4 class="my-5" id="caja">Chauppoo</h4>
-            </div>
-        </main> -->
+    <main>
 
-        <!-- <div class="card" style="width: 18rem;" id="combosChau"></div> -->
-        
-        <main class="mainTienda">
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/alpha.jpeg" class="card-img-top" alt=".Alpha">
-                <div class="card-body">
-                    <h5 class="card-title alpha">Combo Alpha</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
+        <section class="store" id="fondoHome">
+            <div class="container">
+                <div class="combos"> 
+                    <div class="row"> 
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/alpha.jpeg" alt="Alpha">
+                                <h4 class="text-secondary text-center mb-2 combo-title">Alpha</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$1800</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/beta.jpeg" alt="Beta"> 
+                                <h4 class="text-secondary text-center mb-2 combo-title">Beta</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$1800</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/gamma.jpeg" alt="Gamma"> 
+                                <h4 class="text-secondary text-center mb-2 combo-title">Gamma</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$1800</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/delta.jpeg" alt="Delta"> 
+                                <h4 class="text-secondary text-center mb-2 combo-title">Delta</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$18000</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/kappa.jpeg" alt="Kappa"> 
+                                <h4 class="text-secondary text-center mb-2 combo-title">Kappa</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$18000</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                         
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/omega.jpeg" alt="Omega"> 
+                                <h4 class="text-secondary text-center mb-2 combo-title">Omega</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$18000</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="col-lg-3">
+                            <div class="combo card shadow card-body text-center mt-3 mb-4">
+                                <img class="combo-img img-fluid imagenesProducto p-2" src="../imagenes/sigma.jpeg" alt="Sigma"> 
+                                <h4 class="text-secondary text-center mb-2 combo-title">Sigma</h4> 
+                                <div>
+                                    <p class="mb-1 combo-price">$18000</p> 
+                                    <button class="btn btn-outline-success add-to-cart-btn"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg> 
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>    
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/beta.jpeg" class="card-img-top" alt="Beta">
-                <div class="card-body">
-                    <h5 class="card-title">Combo Beta</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/gamma.jpeg" class="card-img-top" alt="gamma">
-                <div class="card-body">
-                    <h5 class="card-title">Combo Gamma</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/delta.jpeg" class="card-img-top" alt="delta">
-                <div class="card-body">
-                    <h5 class="card-title">Combo Delta</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/kappa.jpeg" class="card-img-top" alt="kappa">
-                <div class="card-body">
-                    <h5 class="card-title">Combo Kappa</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/omega.jpeg" class="card-img-top" alt="omega">
-                <div class="card-body">
-                    <h5 class="card-title">Combo Omega</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="../Imagenes/sigma.jpeg" class="card-img-top" alt="sigma">
-                <div class="card-body">
-                    <h5 class="card-title">Combo Sigma</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-        </main>
+        </section>
+    </main>
+
     </div>
 
-    <!-- <script src="../JS/index.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <!-- BOOTSTRAP JS -->
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+        <!-- JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+        <script src="../JS/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
