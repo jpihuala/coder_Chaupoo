@@ -1,5 +1,5 @@
     function shoppingCart() {
-            const addToShoppingCart = document.querySelectorAll( '.add-to-cart-btn' ); // Botón "Agregar al carrito"
+            const addToShoppingCart = document.querySelectorAll( '.add-to-cart-btn' );
             
 
             addToShoppingCart.forEach( ( addToCartButtons ) => {
@@ -10,7 +10,6 @@
                 let btn = event.target;
                 const combos = btn.closest( '.combo' );
 
-                // Productos
                     const comboImg = combos.querySelector( '.combo-img' ).src;                        
                     const comboTitle = combos.querySelector( '.combo-title' ).textContent;
                     const comboPrice = combos.querySelector( '.combo-price' ).textContent;
